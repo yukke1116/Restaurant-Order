@@ -46,14 +46,23 @@ class ManagerController extends Controller
         return view('restaurant.signup.managerSignupComplete', compact('name'));
     }
 
-    //トップページ（管理者）
-    public function managerTop(Request $request)
+    //ログイン完了ページ（管理者）
+    public function managerLogin(Request $request)
     {
         $request->validate([
-            'name_or_position' => 'required|exists:staff,name_or_position',
+            'name_or_position' => 'exists:staff,name_or_position',
             'password' => 'required|exists:staff,password'
         ]);
 
+        $restaurant_name = $request['restaurant_name'];
+        $name_or_position = $request['name_or_position'];
+
+        return view('restaurant.staff.manager.managerLogin', compact('restaurant_name', 'name_or_position'));
+    }
+    
+    //トップページ（管理者）
+    public function managerTop(Request $request)
+    {
         $restaurant_name = $request['restaurant_name'];
         $name_or_position = $request['name_or_position'];
 
