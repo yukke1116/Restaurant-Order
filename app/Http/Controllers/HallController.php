@@ -12,14 +12,23 @@ use Illuminate\Support\Facades\DB;
 
 class HallController extends Controller
 {   
-    //トップページ（ホール）
-    public function hallTop(Request $request)
+    //ログイン完了ページ（ホール）
+    public function hallLogin(Request $request)
     {
         $request->validate([
             'name_or_position' => 'exists:staff,name_or_position',
             'password' => 'required|exists:staff,password'
         ]);
 
+        $restaurant_name = $request['restaurant_name'];
+        $name_or_position = $request['name_or_position'];
+
+        return view('restaurant.staff.hall.hallLogin', compact('restaurant_name', 'name_or_position'));
+    }
+    
+    //トップページ（ホール）
+    public function hallTop(Request $request)
+    {
         $restaurant_name = $request['restaurant_name'];
         $name_or_position = $request['name_or_position'];
 
