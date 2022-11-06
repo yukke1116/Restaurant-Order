@@ -13,7 +13,7 @@
 </div>
 <div class="staffLoginContents">
     <div class="content">
-        <form action="hallTop" method="post">
+        <form action="hallLogin" method="post">
             @csrf
             <h1>ホール</h1>
             <label for="restaurant_name" class="none"></label>
@@ -32,7 +32,7 @@
         </form>
     </div>
     <div class="content">
-        <form action="kitchenTop" method="post">
+        <form action="kitchenLogin" method="post">
             @csrf
             <h1>キッチン</h1>
             <label for="restaurant_name" class="none"></label>
@@ -51,7 +51,7 @@
         </form>
     </div>
     <div class="content">
-        <form action="managerTop" method="post">
+        <form action="managerLogin" method="post">
             @csrf
             <h1>管理者</h1>
             <label for="restaurant_name" class="none"></label>
