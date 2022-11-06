@@ -12,14 +12,23 @@ use Illuminate\Support\Facades\DB;
 
 class KitchenController extends Controller
 {   
-    //トップページ（キッチン）
-    public function kitchenTop(Request $request)
+    //ログイン完了ページ（キッチン）
+    public function kitchenLogin(Request $request)
     {
         $request->validate([
             'name_or_position' => 'exists:staff,name_or_position',
             'password' => 'required|exists:staff,password'
         ]);
 
+        $restaurant_name = $request['restaurant_name'];
+        $name_or_position = $request['name_or_position'];
+
+        return view('restaurant.staff.kitchen.kitchenLogin', compact('restaurant_name', 'name_or_position'));
+    }
+    
+    //トップページ（キッチン）
+    public function kitchenTop(Request $request)
+    {
         $restaurant_name = $request['restaurant_name'];
         $name_or_position = $request['name_or_position'];
 
