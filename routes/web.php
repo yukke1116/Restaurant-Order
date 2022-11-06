@@ -65,6 +65,9 @@ Route::post('/orderHistory', [CustomerController::class, 'orderHistory']);
 //従業員ログインページ
 Route::get('/staffLogin', [RestaurantController::class, 'staffLogin']);
 
+//ログイン完了ページ（ホール）
+Route::post('/hallLogin', [HallController::class, 'hallLogin']);
+
 //トップページ（ホール）
 Route::post('/hallTop', [HallController::class, 'hallTop']);
 
@@ -83,6 +86,9 @@ Route::get('/hallSeating', [HallController::class, 'hallSeating']);
 //各席の注文履歴ページ（ホール）
 Route::post('/hallSeatOrderHistory', [HallController::class, 'hallSeatOrderHistory']);
 
+//ログイン完了ページ（キッチン）
+Route::post('/kitchenLogin', [kitchenController::class, 'kitchenLogin']);
+
 //トップページ（キッチン）
 Route::post('/kitchenTop', [KitchenController::class, 'kitchenTop']);
 
@@ -100,6 +106,9 @@ Route::get('/kitchenSeating', [KitchenController::class, 'kitchenSeating']);
 
 //各席の注文履歴ページ（キッチン）
 Route::post('/kitchenSeatOrderHistory', [KitchenController::class, 'kitchenSeatOrderHistory']);
+
+//ログイン完了ページ（管理者）
+Route::post('/managerLogin', [managerController::class, 'managerLogin']);
 
 //トップページ（管理者）
 Route::post('/managerTop', [ManagerController::class, 'managerTop']);
